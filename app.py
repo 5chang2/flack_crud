@@ -21,3 +21,18 @@ migrate = Migrate(app, db)
 def index():
     return render_template('index.html')
     
+@app.route('/new')
+def new():
+    return render_template('new.html')
+    
+@app.route('/create')
+def create():
+    title = request.args.get('title')
+    content = request.args.get('content')
+    # 여기서 Post는 models.py에 들어있는 클래스 이름
+    post = Post(title=title, content=content)
+    db.session.add(post)
+    db.session.commit()
+    # INSERT INTO posts (title, content)
+    # VALUES ('1번글', '1번내용');
+    return render_template("create.html", post=post)
