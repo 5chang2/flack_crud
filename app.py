@@ -38,11 +38,19 @@ def create():
     db.session.commit()
     # INSERT INTO posts (title, content)
     # VALUES ('1번글', '1번내용');
-    return render_template("create.html", post=post)
-
+    return redirect('/')
+    
 # app.rb
 @app.route("/posts/<int:id>")
 def read(id):
     post = Post.query.get(id)
     # SELECT * FROM posts WHERE id=1;
     return render_template("read.html", post=post)
+    
+@app.route("/posts/<int:id>/delete")
+def delete(id):
+    post = Post.query.get(id)
+    db.session.delete(post)
+    db.session.commit()
+    # DELETE FROM posts WHERE id=2;
+    return redirect('/')
