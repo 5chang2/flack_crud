@@ -19,8 +19,11 @@ migrate = Migrate(app, db)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
-    
+    posts = Post.query.order_by(Post.id.desc()).all()
+    # SELECT * FROM posts;
+    # SELECT * FROM posts ORDER BY id DESC;
+    return render_template("index.html",posts=posts)
+
 @app.route('/new')
 def new():
     return render_template('new.html')
