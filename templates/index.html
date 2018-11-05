@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{%block body_block%}
     <h1>index!!!</h1>
     {% for post in posts %}
       <p>{{post.id}}</p>
@@ -15,5 +8,4 @@
       <p>{{post.created_at.strftime("%Y년 %m월 %d일 %H:%M")}}</p>
     {% endfor %}
     <a href="/new">글쓰러 가기!!</a>
-</body>
-</html>
+{%endblock%}
