@@ -260,3 +260,5 @@ def index():
 </body>
 ```
 
+- create post방식으로 하기
+    - https://github.com/5chang2/flask_crud
