@@ -14,6 +14,8 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql:///myboard'
 app.config["SQLALCHEMY_TRACK_MODIFICATION"] = False
 db.init_app(app)
+migrate = Migrate(app, db)
+
 
 @app.route('/')
 def index():

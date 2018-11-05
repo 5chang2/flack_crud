@@ -1,5 +1,6 @@
 # /models.py
-from flask_alchemy import SQLAlchemy
+import datetime
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
