@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {%block body_block%}
     <h1>index!!!</h1>
+    <div class="row">
     {% for post in posts %}
-      <p>{{post.id}}</p>
-      <p>{{post.title}}</p>
-      <p>{{post.content}}</p>
-      <p>{{post.created_at.strftime("%Y년 %m월 %d일 %H:%M")}}</p>
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <p class="card-text">{{post.content}}</p>
+                <p>{{post.created_at.strftime("%Y년 %m월 %d일 %H:%M")}}</p>
+    
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+        </div>
     {% endfor %}
+    </div>
     <a href="/new">글쓰러 가기!!</a>
 {%endblock%}
