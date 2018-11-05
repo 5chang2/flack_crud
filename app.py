@@ -1,5 +1,5 @@
 # /app.py
-from flask import Flask
+from flask import Flask, render_template, request, redirect
 # flask ORM
 from flask_sqlalchemy import SQLAlchemy
 # 마이그레이션 관리
@@ -19,4 +19,5 @@ migrate = Migrate(app, db)
 
 @app.route('/')
 def index():
-    return "hello world"
+    return render_template('index.html')
+    
