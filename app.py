@@ -39,3 +39,10 @@ def create():
     # INSERT INTO posts (title, content)
     # VALUES ('1번글', '1번내용');
     return render_template("create.html", post=post)
+
+# app.rb
+@app.route("/posts/<int:id>")
+def read(id):
+    post = Post.query.get(id)
+    # SELECT * FROM posts WHERE id=1;
+    return render_template("read.html", post=post)
